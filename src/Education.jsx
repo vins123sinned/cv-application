@@ -5,12 +5,12 @@ function Education() {
 		{
 			id: 'school',
 			name: 'school',
-			text: 'School',
+			label: 'School',
 		},
 		{
 			id: 'study',
 			name: 'study',
-			text: 'Field of Study',
+			label: 'Field of Study',
 		},
 	]
 	return (

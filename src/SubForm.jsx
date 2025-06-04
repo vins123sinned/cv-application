@@ -6,17 +6,18 @@ function SubForm({ title, fields }) {
 		<section className="sub-form">
 			<h2>{title}</h2>
 			{fields.map((field) =>
-				<FormField type={field.type} text={field.text} id={field.id} name={field.name} />
+				<FormField type={field.type} label={field.label} id={field.id} name={field.name} key={field.id} />
 			)}
+			{/*This could be its own component!*/}
 			<FormField 
 				type="date" 
-				text="Start Date" 
+				label="Start Date" 
 				id="start-date" 
 				name="start_date" 
 			/>
 			<FormField 
 				type="date" 
-				text="End Date" 
+				label="End Date" 
 				id="end-date" 
 				name="end_date" 
 			/>

@@ -4,18 +4,18 @@ function General() {
 	const fields = [{
 		id: 'name',
 		name: 'name',
-		text: 'Name',
+		label: 'Name',
 	}, 
 	{
 		id: 'email',
 		name: 'email',
-		text: 'Email',
+		label: 'Email',
 		type: 'email',
 	}, 
 	{
 		id: 'phone-number',
 		name: 'phone_number',
-		text: 'Phone Number',
+		label: 'Phone Number',
 		type: 'tel',
 	}];
 
@@ -23,7 +23,7 @@ function General() {
 		<section className="general">
 				<h2>General</h2>
 				{fields.map((field) =>
-					<FormField type={field.type} text={field.text} id={field.id} name={field.name} key={field.id} />
+					<FormField type={field.type} label={field.label} id={field.id} name={field.name} key={field.id} />
 				)}
 		</section>
 	)
