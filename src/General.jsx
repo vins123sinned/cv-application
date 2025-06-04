@@ -20,8 +20,8 @@ function General() {
 	}];
 
 	return (
-		<section className="general-info">
-				<h2>General Info</h2>
+		<section className="general">
+				<h2>General</h2>
 				{fields.map((field) =>
 					<FormField type={field.type} text={field.text} id={field.id} name={field.name} key={field.id} />
 				)}
