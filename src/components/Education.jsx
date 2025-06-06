@@ -1,4 +1,6 @@
 import { SubForm } from "./SubForm";
+import { AddButton } from "./AddButton.jsx";
+import { EditButton } from "./EditButton.jsx"
 
 function Education() {
 	const fields = [
@@ -16,6 +18,8 @@ function Education() {
 	return (
 		<section className="education">
 			<SubForm title="Education" fields={fields} />
+			<EditButton />
+			<AddButton text="Add Education" />
 		</section>
 	);
 }

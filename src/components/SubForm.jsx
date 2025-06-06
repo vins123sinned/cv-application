@@ -1,4 +1,5 @@
 import { FormField } from "./FormField";
+import { DateRange } from "./DateRange";
 
 // Also add a button for date to disable end date!
 function SubForm({ title, fields }) {
@@ -8,19 +9,7 @@ function SubForm({ title, fields }) {
 			{fields.map((field) =>
 				<FormField type={field.type} label={field.label} id={field.id} name={field.name} key={field.id} />
 			)}
-			{/*This could be its own component!*/}
-			<FormField 
-				type="date" 
-				label="Start Date" 
-				id="start-date" 
-				name="start_date" 
-			/>
-			<FormField 
-				type="date" 
-				label="End Date" 
-				id="end-date" 
-				name="end_date" 
-			/>
+			<DateRange />
 		</section>
 	)
 }

@@ -1,15 +1,19 @@
-import './App.css'
-import { General } from './General.jsx'
-import { Education } from './Education.jsx'
-import { Experience } from './Experience.jsx'
+import './assets/App.css';
+import { General } from './components/General.jsx';
+import { Education } from './components/Education.jsx';
+import { Experience } from './components/Experience.jsx';
+import { GenerateButton } from './components/GenerateButton.jsx';
 
 function App() {
   return (
     <>
       <h1>CV Application</h1>
-      <General />
-      <Education />
-      <Experience />
+      <form>
+        <General />
+        <Education />
+        <Experience />
+        <GenerateButton />
+      </form>
     </>
   )
 }

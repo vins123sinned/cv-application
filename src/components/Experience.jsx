@@ -1,4 +1,6 @@
 import { SubForm } from "./SubForm";
+import { AddButton } from "./AddButton";
+import { EditButton } from "./EditButton";
 
 function Experience() {
 	const fields = [
@@ -22,6 +24,8 @@ function Experience() {
 	return (
 		<section className="experience">
 			<SubForm title="Experience" fields={fields} />
+			<EditButton />
+			<AddButton text="Add Experience" />
 		</section>
 	)
 }
