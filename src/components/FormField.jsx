@@ -1,6 +1,6 @@
 import { Input } from './Input.jsx'
 
-function FormField({ type = 'text', label, id, name}) {
+function FormField({ type = 'text', label, id, name, value, data, dataSectionName, setData}) {
 	return (
 		<div className="form-field">
 			<label htmlFor={id}>{label}</label>
@@ -8,7 +8,15 @@ function FormField({ type = 'text', label, id, name}) {
 				type === 'textarea' ? 
 				<textarea id={id} name={name} />
 				:
-				<Input type={type} id={id} name={name} />
+				<Input 
+					type={type} 
+					id={id} 
+					name={name} 
+					value={value} 
+					data={data}
+					dataSectionName={dataSectionName}
+					setData={setData} 
+				/>
 			}
 		</div>
 	)

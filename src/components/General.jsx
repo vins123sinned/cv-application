@@ -1,6 +1,7 @@
 import { FormField } from "./FormField"
 
-function General() {
+function General({ data, setData}) {
+	const dataSectionName = 'general';
 	const fields = [{
 		id: 'name',
 		name: 'name',
@@ -14,7 +15,7 @@ function General() {
 	}, 
 	{
 		id: 'phone-number',
-		name: 'phone_number',
+		name: 'phoneNumber',
 		label: 'Phone Number',
 		type: 'tel',
 	}];
@@ -23,7 +24,17 @@ function General() {
 		<section className="general">
 				<h2>General</h2>
 				{fields.map((field) =>
-					<FormField type={field.type} label={field.label} id={field.id} name={field.name} key={field.id} />
+					<FormField 
+						type={field.type} 
+						label={field.label} 
+						id={field.id} 
+						name={field.name} 
+						value={data[dataSectionName][field.name]}
+						data={data}
+						dataSectionName={dataSectionName}
+						setData={setData}
+						key={field.id} 
+					/>
 				)}
 		</section>
 	)

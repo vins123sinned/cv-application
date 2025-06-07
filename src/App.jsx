@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './assets/App.css';
 import { General } from './components/General.jsx';
 import { Education } from './components/Education.jsx';
@@ -5,13 +6,24 @@ import { Experience } from './components/Experience.jsx';
 import { GenerateButton } from './components/GenerateButton.jsx';
 
 function App() {
+  // Each array will store a section's data
+  const [data, setData] = useState({
+    general: {
+      name: 'a',
+      email: '',
+      phoneNumber: 'Test',
+    },
+    education: [],
+    experience: [],
+  });
+
   return (
     <>
       <h1>CV Application</h1>
       <form>
-        <General />
-        <Education />
-        <Experience />
+        <General data={data} setData={setData} />
+        <Education data={data} setData={setData} />
+        <Experience data={data} setData={setData} />
         <GenerateButton />
       </form>
     </>
