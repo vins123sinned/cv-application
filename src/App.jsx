@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import './assets/App.css';
-import { General } from './components/General.jsx';
-import { Education } from './components/Education.jsx';
-import { Experience } from './components/Experience.jsx';
-import { GenerateButton } from './components/GenerateButton.jsx';
+import { useState } from "react";
+import "./assets/App.css";
+import { General } from "./components/General.jsx";
+import { Education } from "./components/Education.jsx";
+import { Experience } from "./components/Experience.jsx";
+import { GenerateButton } from "./components/GenerateButton.jsx";
 
 function App() {
   // Each array will store a section's data
   const [data, setData] = useState({
     general: {
-      name: 'a',
-      email: '',
-      phoneNumber: 'Test',
+      name: "",
+      email: "",
+      phoneNumber: "",
     },
     education: [],
     experience: [],
@@ -27,7 +27,7 @@ function App() {
         <GenerateButton />
       </form>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

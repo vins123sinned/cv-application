@@ -1,7 +1,9 @@
 function EditButton() {
-	return (
-		<button type="button" className="edit-button">Edit Symbol</button>
-	)
+  return (
+    <button type="button" className="edit-button">
+      Edit Symbol
+    </button>
+  );
 }
 
-export { EditButton }
+export { EditButton };
