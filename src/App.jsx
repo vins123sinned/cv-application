@@ -16,8 +16,8 @@ function App() {
     education: [],
     experience: [],
   });
-
   const [errors, setErrors] = useState({});
+  const [editingKey, setEditingKey] = useState(null);
 
   return (
     <>
@@ -29,6 +29,8 @@ function App() {
           setData={setData}
           errors={errors}
           setErrors={setErrors}
+          editingKey={editingKey}
+          setEditingKey={setEditingKey}
         />
         <Experience data={data} setData={setData} />
         <GenerateButton />

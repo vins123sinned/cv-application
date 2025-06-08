@@ -24,7 +24,7 @@ function Experience() {
   return (
     <section className="experience">
       <h2 className="section-heading">Experience</h2>
-      <SubForm fields={fields} />
+      {/*<SubForm fields={fields} />*/}
       <EditButton />
       <AddButton text="Add Experience" />
     </section>

@@ -41,10 +41,10 @@ function Input({
       type={type}
       id={id}
       name={name}
-      value={value}
       onChange={updateData}
       disabled={isDisabled}
       className={hasError ? "error" : ""}
+      {...(type === "checkbox" ? { checked: value } : { value })}
     />
   );
 }

@@ -3,8 +3,23 @@ import { AddButton } from "./AddButton.jsx";
 import { EditButton } from "./EditButton.jsx";
 import { useState } from "react";
 
-function Education({ data, setData, errors, setErrors }) {
+function Education({
+  data,
+  setData,
+  errors,
+  setErrors,
+  editingKey,
+  setEditingKey,
+}) {
   const [showSubForm, setShowSubForm] = useState(false);
+  const [subFormData, setSubFormData] = useState({
+    school: "",
+    study: "",
+    startDate: "",
+    endDate: "",
+    ongoing: false,
+    key: self.crypto.randomUUID(),
+  });
   const dataSectionName = "education";
   const fields = [
     {
@@ -20,14 +35,43 @@ function Education({ data, setData, errors, setErrors }) {
   ];
 
   function showEducationEntries() {
-    return data.education.map((entry) => (
-      <div className="entry" key={entry.key}>
-        <h3 className="entry-heading">{entry.school}</h3>
-        <p className="entry-para">{entry.study}</p>
-        <p className="entry-para">{entry.startDate} - {entry.ongoing ? 'Present' : entry.endDate}</p>
-        <EditButton />
-      </div>
-    ));
+    return data.education.map((entry) => {
+      if (editingKey === entry.key) {
+        return (
+          <SubForm
+            title="Education"
+            fields={fields}
+            data={data}
+            dataSectionName={dataSectionName}
+            setData={setData}
+            errors={errors}
+            setErrors={setErrors}
+            setShowSubForm={setShowSubForm}
+            subFormData={subFormData}
+            setSubFormData={setSubFormData}
+            editingKey={editingKey}
+            setEditingKey={setEditingKey}
+            key={entry.key}
+          />
+        );
+      } else {
+        return (
+          <div className="entry" key={entry.key}>
+            <h3 className="entry-heading">{entry.school}</h3>
+            <p className="entry-para">{entry.study}</p>
+            <p className="entry-para">
+              {entry.startDate} - {entry.ongoing ? "Present" : entry.endDate}
+            </p>
+            <EditButton
+              data={data}
+              entryKey={entry.key}
+              setEditingKey={setEditingKey}
+              setSubFormData={setSubFormData}
+            />
+          </div>
+        );
+      }
+    });
   }
 
   return (
@@ -44,6 +88,10 @@ function Education({ data, setData, errors, setErrors }) {
           errors={errors}
           setErrors={setErrors}
           setShowSubForm={setShowSubForm}
+          subFormData={subFormData}
+          setSubFormData={setSubFormData}
+          editingKey={editingKey}
+          setEditingKey={setEditingKey}
         />
       )}
       {!showSubForm && (
