@@ -9,6 +9,7 @@ function SubForm({
   setData,
   errors,
   setErrors,
+  setShowSubForm,
 }) {
   const [subFormData, setSubformData] = useState({
     school: "",
@@ -16,14 +17,15 @@ function SubForm({
     startDate: "",
     endDate: "",
     ongoing: false,
+    key: self.crypto.randomUUID(),
   });
 
-  function updateData() {
-    // Validate form before moving on
+  function checkSubForm() {
     const newErrors = { ...errors };
     let isValid = true;
 
     for (const property in subFormData) {
+      if (property === 'ongoing') continue;
       if (!subFormData[property]) {
         newErrors[property] = "Required!";
         isValid = false;
@@ -36,14 +38,22 @@ function SubForm({
     }
 
     setErrors(newErrors);
+    return isValid;
+  }
+
+  function updateData() {
+    // Validate form before moving on
+    const isValid =  checkSubForm();
     if (!isValid) return;
 
     const newData = {
       ...data,
-      [dataSectionName]: subFormData,
+      [dataSectionName]: [...data.education, subFormData],
     };
 
+    // remove subform component and render new education section
     setData(newData);
+    setShowSubForm(false);
   }
 
   return (
