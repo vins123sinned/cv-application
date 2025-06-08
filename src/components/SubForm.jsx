@@ -2,8 +2,14 @@ import { FormField } from "./FormField";
 import { DateRange } from "./DateRange";
 import { useState } from "react";
 
-// TODO: disable date when ongoing checked and add validation styling!!
-function SubForm({ fields, data, dataSectionName, setData }) {
+function SubForm({
+  fields,
+  data,
+  dataSectionName,
+  setData,
+  errors,
+  setErrors,
+}) {
   const [subFormData, setSubformData] = useState({
     school: "",
     study: "",
@@ -14,12 +20,23 @@ function SubForm({ fields, data, dataSectionName, setData }) {
 
   function updateData() {
     // Validate form before moving on
-    if (!subFormData.endDate && !subFormData.ongoing)
-      return console.log("none first!");
+    const newErrors = { ...errors };
+    let isValid = true;
+
     for (const property in subFormData) {
-      if (property === "endDate" || property === "ongoing") continue;
-      if (!subFormData[property]) return console.log("none!");
+      if (!subFormData[property]) {
+        newErrors[property] = "Required!";
+        isValid = false;
+      }
     }
+
+    if (!subFormData.endDate && !subFormData.ongoing) {
+      newErrors.endDate = "Required!";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    if (!isValid) return;
 
     const newData = {
       ...data,
@@ -42,6 +59,8 @@ function SubForm({ fields, data, dataSectionName, setData }) {
           dataSectionName={dataSectionName}
           setState={setSubformData}
           isSubForm={true}
+          errors={errors}
+          setErrors={setErrors}
           key={field.id}
         />
       ))}
@@ -50,6 +69,8 @@ function SubForm({ fields, data, dataSectionName, setData }) {
         dataSectionName={dataSectionName}
         setState={setSubformData}
         isSubForm={true}
+        errors={errors}
+        setErrors={setErrors}
       />
       <button type="button" className="cancel">
         Cancel

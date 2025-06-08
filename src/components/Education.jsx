@@ -3,7 +3,7 @@ import { AddButton } from "./AddButton.jsx";
 import { EditButton } from "./EditButton.jsx";
 import { useState } from "react";
 
-function Education({ data, setData }) {
+function Education({ data, setData, errors, setErrors }) {
   const [showSubForm, setShowSubForm] = useState(false);
 
   const dataSectionName = "education";
@@ -30,6 +30,8 @@ function Education({ data, setData }) {
           data={data}
           dataSectionName={dataSectionName}
           setData={setData}
+          errors={errors}
+          setErrors={setErrors}
         />
       )}
       <EditButton />

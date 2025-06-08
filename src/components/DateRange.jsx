@@ -1,6 +1,13 @@
 import { FormField } from "./FormField";
 
-function DateRange({ data, dataSectionName, setState, isSubForm }) {
+function DateRange({
+  data,
+  dataSectionName,
+  setState,
+  isSubForm,
+  errors,
+  setErrors,
+}) {
   return (
     <>
       <FormField
@@ -13,6 +20,8 @@ function DateRange({ data, dataSectionName, setState, isSubForm }) {
         dataSectionName={dataSectionName}
         setState={setState}
         isSubForm={isSubForm}
+        errors={errors}
+        setErrors={setErrors}
       />
       <FormField
         type="date"
@@ -24,6 +33,8 @@ function DateRange({ data, dataSectionName, setState, isSubForm }) {
         dataSectionName={dataSectionName}
         setState={setState}
         isSubForm={isSubForm}
+        errors={errors}
+        setErrors={setErrors}
       />
       <FormField
         type="checkbox"

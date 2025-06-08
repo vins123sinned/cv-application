@@ -7,13 +7,19 @@ function Input({
   dataSectionName,
   setState,
   isSubForm,
+  isDisabled,
+  hasError,
 }) {
   function updateData(event) {
+    // check for value or checked depending on the input
+    const newValue =
+      name === "ongoing" ? event.target.checked : event.target.value;
+
     if (isSubForm) {
       // Note: data is subFormData in this case
       const newSubFormData = {
         ...data,
-        [name]: event.target.value,
+        [name]: newValue,
       };
 
       setState(newSubFormData);
@@ -23,7 +29,7 @@ function Input({
       ...data,
       [dataSectionName]: {
         ...data[dataSectionName],
-        [name]: event.target.value,
+        [name]: newValue,
       },
     };
 
@@ -37,6 +43,8 @@ function Input({
       name={name}
       value={value}
       onChange={updateData}
+      disabled={isDisabled}
+      className={hasError ? "error" : ""}
     />
   );
 }

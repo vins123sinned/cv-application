@@ -17,12 +17,19 @@ function App() {
     experience: [],
   });
 
+  const [errors, setErrors] = useState({});
+
   return (
     <>
       <h1>CV Application</h1>
       <form>
         <General data={data} setData={setData} />
-        <Education data={data} setData={setData} />
+        <Education
+          data={data}
+          setData={setData}
+          errors={errors}
+          setErrors={setErrors}
+        />
         <Experience data={data} setData={setData} />
         <GenerateButton />
       </form>
