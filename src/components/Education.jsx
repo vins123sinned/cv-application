@@ -1,6 +1,5 @@
 import { SubForm } from "./SubForm";
-import { AddButton } from "./AddButton.jsx";
-import { EditButton } from "./EditButton.jsx";
+import { AddButton, EditButton, DeleteButton } from "./Buttons.jsx";
 import { useState } from "react";
 
 function Education({
@@ -62,6 +61,12 @@ function Education({
             <p className="entry-para">
               {entry.startDate} - {entry.ongoing ? "Present" : entry.endDate}
             </p>
+            <DeleteButton
+              data={data}
+              entryKey={entry.key}
+              dataSectionName={dataSectionName}
+              setData={setData}
+            />
             <EditButton
               data={data}
               entryKey={entry.key}

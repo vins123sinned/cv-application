@@ -35,6 +35,19 @@ function SubForm({
     return isValid;
   }
 
+  function cancelSubform() {
+    setSubFormData({
+      school: "",
+      study: "",
+      startDate: "",
+      endDate: "",
+      ongoing: false,
+      key: self.crypto.randomUUID(),
+    });
+    setShowSubForm(false);
+    setEditingKey(null);
+  }
+
   function updateData() {
     // Validate form before moving on
     const isValid = checkSubForm();
@@ -95,7 +108,7 @@ function SubForm({
         errors={errors}
         setErrors={setErrors}
       />
-      <button type="button" className="cancel">
+      <button type="button" className="cancel" onClick={cancelSubform}>
         Cancel
       </button>
       <button type="button" className="submit" onClick={updateData}>

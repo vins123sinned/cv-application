@@ -1,5 +1,5 @@
 import { SubForm } from "./SubForm";
-import { AddButton } from "./AddButton";
+import { AddButton } from "./Buttons";
 import { EditButton } from "./EditButton";
 
 function Experience() {
