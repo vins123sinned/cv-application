@@ -1,18 +1,54 @@
-function AddButton({ text, stateBoolean, setState }) {
+function AddButton({
+  text,
+  dataSectionName,
+  setEditingKey,
+  setShowSubForm,
+  setSubFormData,
+}) {
+  function addClicked() {
+    if (dataSectionName === "education") {
+      setSubFormData({
+        school: "",
+        study: "",
+        startDate: "",
+        endDate: "",
+        ongoing: false,
+        key: self.crypto.randomUUID(),
+      });
+    } else {
+      setSubFormData({
+        company: "",
+        position: "",
+        responsibilities: "",
+        startDate: "",
+        endDate: "",
+        ongoing: false,
+        key: self.crypto.randomUUID(),
+      });
+    }
+
+    setShowSubForm(dataSectionName);
+    setEditingKey(null);
+  }
+
   return (
-    <button
-      type="button"
-      className="add-button"
-      onClick={() => setState(!stateBoolean)}
-    >
+    <button type="button" className="add-button" onClick={addClicked}>
       {text}
     </button>
   );
 }
 
-function EditButton({ data, entryKey, setEditingKey, setSubFormData }) {
+function EditButton({
+  data,
+  entryKey,
+  dataSectionName,
+  setEditingKey,
+  setSubFormData,
+}) {
   function editEntry() {
-    const entryData = data.education.find((entry) => entry.key === entryKey);
+    const entryData = data[dataSectionName].find(
+      (entry) => entry.key === entryKey,
+    );
 
     setEditingKey(entryKey);
     setSubFormData(entryData);

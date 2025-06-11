@@ -1,6 +1,5 @@
 import { SubForm } from "./SubForm";
 import { AddButton, EditButton, DeleteButton } from "./Buttons.jsx";
-import { useState } from "react";
 
 function Education({
   data,
@@ -9,16 +8,11 @@ function Education({
   setErrors,
   editingKey,
   setEditingKey,
+  showSubForm,
+  setShowSubForm,
+  subFormData,
+  setSubFormData,
 }) {
-  const [showSubForm, setShowSubForm] = useState(false);
-  const [subFormData, setSubFormData] = useState({
-    school: "",
-    study: "",
-    startDate: "",
-    endDate: "",
-    ongoing: false,
-    key: self.crypto.randomUUID(),
-  });
   const dataSectionName = "education";
   const fields = [
     {
@@ -38,7 +32,6 @@ function Education({
       if (editingKey === entry.key) {
         return (
           <SubForm
-            title="Education"
             fields={fields}
             data={data}
             dataSectionName={dataSectionName}
@@ -56,8 +49,8 @@ function Education({
       } else {
         return (
           <div className="entry" key={entry.key}>
-            <h3 className="entry-heading">{entry.school}</h3>
-            <p className="entry-para">{entry.study}</p>
+            <h3 className="entry-heading">{entry.study}</h3>
+            <h4 className="entry-heading">{entry.school}</h4>
             <p className="entry-para">
               {entry.startDate} - {entry.ongoing ? "Present" : entry.endDate}
             </p>
@@ -70,6 +63,7 @@ function Education({
             <EditButton
               data={data}
               entryKey={entry.key}
+              dataSectionName={dataSectionName}
               setEditingKey={setEditingKey}
               setSubFormData={setSubFormData}
             />
@@ -83,9 +77,8 @@ function Education({
     <section className="education">
       <h2 className="section-heading">Education</h2>
       {showEducationEntries()}
-      {showSubForm && (
+      {showSubForm === "education" && !editingKey && (
         <SubForm
-          title="Education"
           fields={fields}
           data={data}
           dataSectionName={dataSectionName}
@@ -99,13 +92,13 @@ function Education({
           setEditingKey={setEditingKey}
         />
       )}
-      {!showSubForm && (
-        <AddButton
-          text="Add Education"
-          stateBoolean={showSubForm}
-          setState={setShowSubForm}
-        />
-      )}
+      <AddButton
+        text="Add Education"
+        dataSectionName={dataSectionName}
+        setEditingKey={setEditingKey}
+        setShowSubForm={setShowSubForm}
+        setSubFormData={setSubFormData}
+      />
     </section>
   );
 }

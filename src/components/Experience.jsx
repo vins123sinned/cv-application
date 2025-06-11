@@ -1,8 +1,19 @@
 import { SubForm } from "./SubForm";
-import { AddButton } from "./Buttons";
-import { EditButton } from "./EditButton";
+import { AddButton, EditButton, DeleteButton } from "./Buttons";
 
-function Experience() {
+function Experience({
+  data,
+  setData,
+  errors,
+  setErrors,
+  editingKey,
+  setEditingKey,
+  showSubForm,
+  setShowSubForm,
+  subFormData,
+  setSubFormData,
+}) {
+  const dataSectionName = "experience";
   const fields = [
     {
       id: "company",
@@ -21,12 +32,80 @@ function Experience() {
       type: "textarea",
     },
   ];
+
+  function showExperienceEntries() {
+    return data.experience.map((entry) => {
+      if (editingKey === entry.key) {
+        return (
+          <SubForm
+            fields={fields}
+            data={data}
+            dataSectionName={dataSectionName}
+            setData={setData}
+            errors={errors}
+            setErrors={setErrors}
+            setShowSubForm={setShowSubForm}
+            subFormData={subFormData}
+            setSubFormData={setSubFormData}
+            editingKey={editingKey}
+            setEditingKey={setEditingKey}
+            key={entry.key}
+          />
+        );
+      } else {
+        return (
+          <div className="entry" key={entry.key}>
+            <h3 className="entry-heading">{entry.position}</h3>
+            <h4 className="entry-heading">{entry.company}</h4>
+            <p className="entry-para">{entry.responsibilities}</p>
+            <p className="entry-para">
+              {entry.startDate} - {entry.ongoing ? "Present" : entry.endDate}
+            </p>
+            <DeleteButton
+              data={data}
+              entryKey={entry.key}
+              dataSectionName={dataSectionName}
+              setData={setData}
+            />
+            <EditButton
+              data={data}
+              entryKey={entry.key}
+              dataSectionName={dataSectionName}
+              setEditingKey={setEditingKey}
+              setSubFormData={setSubFormData}
+            />
+          </div>
+        );
+      }
+    });
+  }
+
   return (
     <section className="experience">
       <h2 className="section-heading">Experience</h2>
-      {/*<SubForm fields={fields} />*/}
-      <EditButton />
-      <AddButton text="Add Experience" />
+      {showExperienceEntries()}
+      {showSubForm === "experience" && !editingKey && (
+        <SubForm
+          fields={fields}
+          data={data}
+          dataSectionName={dataSectionName}
+          setData={setData}
+          errors={errors}
+          setErrors={setErrors}
+          setShowSubForm={setShowSubForm}
+          subFormData={subFormData}
+          setSubFormData={setSubFormData}
+          editingKey={editingKey}
+          setEditingKey={setEditingKey}
+        />
+      )}
+      <AddButton
+        text="Add Experience"
+        dataSectionName={dataSectionName}
+        setEditingKey={setEditingKey}
+        setShowSubForm={setShowSubForm}
+        setSubFormData={setSubFormData}
+      />
     </section>
   );
 }

@@ -18,6 +18,8 @@ function App() {
   });
   const [errors, setErrors] = useState({});
   const [editingKey, setEditingKey] = useState(null);
+  const [showSubForm, setShowSubForm] = useState(false);
+  const [subFormData, setSubFormData] = useState(null);
 
   return (
     <>
@@ -31,8 +33,23 @@ function App() {
           setErrors={setErrors}
           editingKey={editingKey}
           setEditingKey={setEditingKey}
+          showSubForm={showSubForm}
+          setShowSubForm={setShowSubForm}
+          subFormData={subFormData}
+          setSubFormData={setSubFormData}
         />
-        <Experience data={data} setData={setData} />
+        <Experience
+          data={data}
+          setData={setData}
+          errors={errors}
+          setErrors={setErrors}
+          editingKey={editingKey}
+          setEditingKey={setEditingKey}
+          showSubForm={showSubForm}
+          setShowSubForm={setShowSubForm}
+          subFormData={subFormData}
+          setSubFormData={setSubFormData}
+        />
         <GenerateButton />
       </form>
     </>

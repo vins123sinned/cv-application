@@ -46,6 +46,7 @@ function SubForm({
     });
     setShowSubForm(false);
     setEditingKey(null);
+    setErrors({});
   }
 
   function updateData() {
@@ -70,16 +71,10 @@ function SubForm({
     };
 
     setData(newData);
-    setSubFormData({
-      school: "",
-      study: "",
-      startDate: "",
-      endDate: "",
-      ongoing: false,
-      key: self.crypto.randomUUID(),
-    });
+    setSubFormData(null);
     setShowSubForm(false);
     setEditingKey(null);
+    setErrors({});
   }
 
   return (
