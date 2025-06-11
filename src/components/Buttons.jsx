@@ -4,6 +4,7 @@ function AddButton({
   setEditingKey,
   setShowSubForm,
   setSubFormData,
+  setErrors,
 }) {
   function addClicked() {
     if (dataSectionName === "education") {
@@ -29,6 +30,7 @@ function AddButton({
 
     setShowSubForm(dataSectionName);
     setEditingKey(null);
+    setErrors({});
   }
 
   return (

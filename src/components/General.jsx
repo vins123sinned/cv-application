@@ -1,6 +1,6 @@
 import { FormField } from "./FormField";
 
-function General({ data, setData }) {
+function General({ data, setData, errors, setErrors }) {
   const dataSectionName = "general";
   const fields = [
     {
@@ -35,6 +35,8 @@ function General({ data, setData }) {
           data={data}
           dataSectionName={dataSectionName}
           setState={setData}
+          errors={errors}
+          setErrors={setErrors}
           key={field.id}
         />
       ))}

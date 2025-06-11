@@ -99,13 +99,16 @@ function Experience({
           setEditingKey={setEditingKey}
         />
       )}
-      <AddButton
-        text="Add Experience"
-        dataSectionName={dataSectionName}
-        setEditingKey={setEditingKey}
-        setShowSubForm={setShowSubForm}
-        setSubFormData={setSubFormData}
-      />
+      {showSubForm !== "experience" && (
+        <AddButton
+          text="Add Experience"
+          dataSectionName={dataSectionName}
+          setEditingKey={setEditingKey}
+          setShowSubForm={setShowSubForm}
+          setSubFormData={setSubFormData}
+          setErrors={setErrors}
+        />
+      )}
     </section>
   );
 }

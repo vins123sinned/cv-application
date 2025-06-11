@@ -11,6 +11,7 @@ function FormField({
   setState,
   isSubForm,
   errors,
+  setErrors,
 }) {
   const hasError = errors && Object.hasOwn(errors, name);
   let isDisabled = false;
@@ -33,6 +34,7 @@ function FormField({
         isDisabled={isDisabled}
         hasError={hasError}
         errors={errors}
+        setErrors={setErrors}
       />
     </div>
   );

@@ -46,6 +46,8 @@ function DateRange({
         dataSectionName={dataSectionName}
         setState={setState}
         isSubForm={isSubForm}
+        errors={errors}
+        setErrors={setErrors}
       />
     </>
   );

@@ -25,7 +25,12 @@ function App() {
     <>
       <h1>CV Application</h1>
       <form>
-        <General data={data} setData={setData} />
+        <General
+          data={data}
+          setData={setData}
+          errors={errors}
+          setErrors={setErrors}
+        />
         <Education
           data={data}
           setData={setData}
@@ -50,7 +55,7 @@ function App() {
           subFormData={subFormData}
           setSubFormData={setSubFormData}
         />
-        <GenerateButton />
+        <GenerateButton data={data} errors={errors} setErrors={setErrors} />
       </form>
     </>
   );

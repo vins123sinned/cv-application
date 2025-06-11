@@ -92,13 +92,16 @@ function Education({
           setEditingKey={setEditingKey}
         />
       )}
-      <AddButton
-        text="Add Education"
-        dataSectionName={dataSectionName}
-        setEditingKey={setEditingKey}
-        setShowSubForm={setShowSubForm}
-        setSubFormData={setSubFormData}
-      />
+      {showSubForm !== "education" && (
+        <AddButton
+          text="Add Education"
+          dataSectionName={dataSectionName}
+          setEditingKey={setEditingKey}
+          setShowSubForm={setShowSubForm}
+          setSubFormData={setSubFormData}
+          setErrors={setErrors}
+        />
+      )}
     </section>
   );
 }
