@@ -1,4 +1,4 @@
-function GenerateButton({ data, errors, setErrors }) {
+function GenerateButton({ data, errors, setErrors, setGenerateCv }) {
   function checkGeneral() {
     const newErrors = { ...errors };
     let isValid = true;
@@ -10,12 +10,21 @@ function GenerateButton({ data, errors, setErrors }) {
       }
     }
 
+    if (Object.keys(errors).length !== 0) isValid = false;
+
     setErrors(newErrors);
     return isValid;
   }
 
+  function generateCv() {
+    const isValid = checkGeneral();
+    if (!isValid) return;
+
+    setGenerateCv(true);
+  }
+
   return (
-    <button type="button" className="generate-button" onClick={checkGeneral}>
+    <button type="button" className="generate-button" onClick={generateCv}>
       Generate
     </button>
   );
