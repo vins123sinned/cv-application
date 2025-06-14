@@ -23,7 +23,7 @@ function General({ data, setData, errors, setErrors }) {
   ];
 
   return (
-    <section className="general">
+    <section className="general form-section">
       <h2 className="section-heading">General</h2>
       {fields.map((field) => (
         <FormField

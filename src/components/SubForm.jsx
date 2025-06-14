@@ -1,5 +1,6 @@
 import { FormField } from "./FormField";
 import { DateRange } from "./DateRange";
+import "../assets/SubForm.css";
 
 function SubForm({
   fields,
@@ -78,7 +79,7 @@ function SubForm({
   }
 
   return (
-    <section className="sub-form">
+    <section className="subform">
       {fields.map((field) => (
         <FormField
           type={field.type}
@@ -103,12 +104,14 @@ function SubForm({
         errors={errors}
         setErrors={setErrors}
       />
-      <button type="button" className="cancel" onClick={cancelSubform}>
-        Cancel
-      </button>
-      <button type="button" className="submit" onClick={updateData}>
-        Submit
-      </button>
+      <div className="subform-buttons">
+        <button type="button" className="cancel-button" onClick={cancelSubform}>
+          Cancel
+        </button>
+        <button type="button" className="submit-button" onClick={updateData}>
+          Submit
+        </button>
+      </div>
     </section>
   );
 }

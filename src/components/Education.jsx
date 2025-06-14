@@ -1,5 +1,6 @@
-import { SubForm } from "./SubForm";
+import { SubForm } from "./SubForm.jsx";
 import { AddButton, EditButton, DeleteButton } from "./Buttons.jsx";
+import "../assets/Entry.css";
 
 function Education({
   data,
@@ -50,23 +51,25 @@ function Education({
         return (
           <div className="entry" key={entry.key}>
             <h3 className="entry-heading">{entry.study}</h3>
-            <h4 className="entry-heading">{entry.school}</h4>
+            <h4 className="entry-subheading">{entry.school}</h4>
             <p className="entry-para">
               {entry.startDate} - {entry.ongoing ? "Present" : entry.endDate}
             </p>
-            <DeleteButton
-              data={data}
-              entryKey={entry.key}
-              dataSectionName={dataSectionName}
-              setData={setData}
-            />
-            <EditButton
-              data={data}
-              entryKey={entry.key}
-              dataSectionName={dataSectionName}
-              setEditingKey={setEditingKey}
-              setSubFormData={setSubFormData}
-            />
+            <div className="entry-buttons">
+              <DeleteButton
+                data={data}
+                entryKey={entry.key}
+                dataSectionName={dataSectionName}
+                setData={setData}
+              />
+              <EditButton
+                data={data}
+                entryKey={entry.key}
+                dataSectionName={dataSectionName}
+                setEditingKey={setEditingKey}
+                setSubFormData={setSubFormData}
+              />
+            </div>
           </div>
         );
       }
@@ -74,7 +77,7 @@ function Education({
   }
 
   return (
-    <section className="education">
+    <section className="education form-section">
       <h2 className="section-heading">Education</h2>
       {showEducationEntries()}
       {showSubForm === "education" && !editingKey && (

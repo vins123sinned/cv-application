@@ -1,5 +1,6 @@
 import { SubForm } from "./SubForm";
 import { AddButton, EditButton, DeleteButton } from "./Buttons";
+import "../assets/Entry.css";
 
 function Experience({
   data,
@@ -56,24 +57,26 @@ function Experience({
         return (
           <div className="entry" key={entry.key}>
             <h3 className="entry-heading">{entry.position}</h3>
-            <h4 className="entry-heading">{entry.company}</h4>
+            <h4 className="entry-subheading">{entry.company}</h4>
             <p className="entry-para">{entry.responsibilities}</p>
             <p className="entry-para">
               {entry.startDate} - {entry.ongoing ? "Present" : entry.endDate}
             </p>
-            <DeleteButton
-              data={data}
-              entryKey={entry.key}
-              dataSectionName={dataSectionName}
-              setData={setData}
-            />
-            <EditButton
-              data={data}
-              entryKey={entry.key}
-              dataSectionName={dataSectionName}
-              setEditingKey={setEditingKey}
-              setSubFormData={setSubFormData}
-            />
+            <div className="entry-buttons">
+              <DeleteButton
+                data={data}
+                entryKey={entry.key}
+                dataSectionName={dataSectionName}
+                setData={setData}
+              />
+              <EditButton
+                data={data}
+                entryKey={entry.key}
+                dataSectionName={dataSectionName}
+                setEditingKey={setEditingKey}
+                setSubFormData={setSubFormData}
+              />
+            </div>
           </div>
         );
       }
@@ -81,7 +84,7 @@ function Experience({
   }
 
   return (
-    <section className="experience">
+    <section className="experience form-section">
       <h2 className="section-heading">Experience</h2>
       {showExperienceEntries()}
       {showSubForm === "experience" && !editingKey && (

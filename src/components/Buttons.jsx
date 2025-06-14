@@ -1,3 +1,5 @@
+import "../assets/Buttons.css";
+
 function AddButton({
   text,
   dataSectionName,
@@ -35,6 +37,7 @@ function AddButton({
 
   return (
     <button type="button" className="add-button" onClick={addClicked}>
+      <span className="material-symbols-outlined">add</span>
       {text}
     </button>
   );
@@ -58,7 +61,7 @@ function EditButton({
 
   return (
     <button type="button" className="edit-button" onClick={editEntry}>
-      Edit Symbol
+      <span className="material-symbols-outlined">edit</span>
     </button>
   );
 }
@@ -78,9 +81,41 @@ function DeleteButton({ data, entryKey, dataSectionName, setData }) {
 
   return (
     <button type="button" className="delete-button" onClick={deleteEntry}>
-      Delete
+      <span className="material-symbols-outlined">delete</span>
     </button>
   );
 }
 
-export { AddButton, EditButton, DeleteButton };
+function GenerateButton({ data, errors, setErrors, setGenerateCv }) {
+  function checkGeneral() {
+    const newErrors = { ...errors };
+    let isValid = true;
+
+    for (const property in data.general) {
+      if (!data.general[property]) {
+        newErrors[property] = "Required!";
+        isValid = false;
+      }
+    }
+
+    if (Object.keys(errors).length !== 0) isValid = false;
+
+    setErrors(newErrors);
+    return isValid;
+  }
+
+  function generateCv() {
+    const isValid = checkGeneral();
+    if (!isValid) return;
+
+    setGenerateCv(true);
+  }
+
+  return (
+    <button type="button" className="generate-button" onClick={generateCv}>
+      Generate
+    </button>
+  );
+}
+
+export { AddButton, EditButton, DeleteButton, GenerateButton };

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import "./assets/App.css";
 import { General } from "./components/General.jsx";
 import { Education } from "./components/Education.jsx";
 import { Experience } from "./components/Experience.jsx";
-import { GenerateButton } from "./components/GenerateButton.jsx";
+import { GenerateButton } from "./components/Buttons.jsx";
 import { Resume } from "./components/Resume.jsx";
+import "./assets/App.css";
 
 function Form({ data, setData, setGenerateCv }) {
   const [errors, setErrors] = useState({});
@@ -14,6 +14,7 @@ function Form({ data, setData, setGenerateCv }) {
 
   return (
     <form>
+      <h1 className="form-section">CV Application</h1>
       <General
         data={data}
         setData={setData}
@@ -44,12 +45,14 @@ function Form({ data, setData, setGenerateCv }) {
         subFormData={subFormData}
         setSubFormData={setSubFormData}
       />
-      <GenerateButton
-        data={data}
-        errors={errors}
-        setErrors={setErrors}
-        setGenerateCv={setGenerateCv}
-      />
+      <div className="generate-container">
+        <GenerateButton
+          data={data}
+          errors={errors}
+          setErrors={setErrors}
+          setGenerateCv={setGenerateCv}
+        />
+      </div>
     </form>
   );
 }
@@ -69,7 +72,6 @@ function App() {
 
   return (
     <>
-      <h1>CV Application</h1>
       {generateCv ? (
         <Resume data={data} setGenerateCv={setGenerateCv} />
       ) : (

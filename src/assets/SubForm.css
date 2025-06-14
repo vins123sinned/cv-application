@@ -1,0 +1,50 @@
+.subform {
+  border-radius: 5px;
+  box-shadow:
+    0 4px 10px -1px rgb(0 0 0 / 0.1),
+    0 2px 5px -1px rgb(0 0 0 / 0.05);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+label[for="ongoing"] {
+  display: inline;
+  margin: 0 0.5rem 0 0;
+}
+
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.subform-buttons {
+  display: flex;
+  justify-content: end;
+}
+
+.cancel-button,
+.submit-button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 0.75rem;
+}
+
+.cancel-button {
+  background-color: #da422e;
+  margin-right: 0.75rem;
+}
+
+.cancel-button:hover {
+  background-color: #e63821;
+}
+
+.submit-button {
+  background-color: #2978a0;
+}
+
+.submit-button:hover {
+  background-color: #278abb;
+}

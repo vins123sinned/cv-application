@@ -1,0 +1,50 @@
+.edit-button,
+.delete-button,
+.generate-button {
+  border: none;
+  border-radius: 5px;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 0.25rem;
+}
+
+.edit-button,
+.delete-button {
+  background-color: transparent;
+}
+
+.add-button .material-symbols-outlined,
+.edit-button .material-symbols-outlined,
+.delete-button .material-symbols-outlined {
+  font-variation-settings: "wght" 200;
+}
+
+.add-button .material-symbols-outlined,
+.delete-button {
+  margin-right: 0.5rem;
+}
+
+.edit-button .material-symbols-outlined,
+.delete-button .material-symbols-outlined {
+  font-size: 1.5rem;
+}
+
+.add-button:hover,
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #f1f1f1;
+}
+
+.generate-button {
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #2978a0;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
