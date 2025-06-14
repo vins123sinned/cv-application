@@ -20,17 +20,20 @@ function Experience({
       id: "company",
       name: "company",
       label: "Company",
+      required: true,
     },
     {
       id: "position",
       name: "position",
       label: "Position",
+      required: true,
     },
     {
       id: "responsibilities",
       name: "responsibilities",
       label: "Responsibilities",
       type: "textarea",
+      required: false,
     },
   ];
 

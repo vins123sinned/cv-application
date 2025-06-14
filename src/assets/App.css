@@ -83,3 +83,16 @@ button:hover {
   width: clamp(400px, 50vw, 800px);
   margin: 1rem auto;
 }
+
+.error-span {
+  color: #f80b0b;
+}
+
+input.error {
+  border: 1px solid #f80b0b;
+  border-radius: 5px;
+}
+
+input.error:focus-visible {
+  outline-color: #f80b0b;
+}

@@ -22,6 +22,7 @@ function DateRange({
         isSubForm={isSubForm}
         errors={errors}
         setErrors={setErrors}
+        required="true"
       />
       <FormField
         type="date"
@@ -35,6 +36,7 @@ function DateRange({
         isSubForm={isSubForm}
         errors={errors}
         setErrors={setErrors}
+        required="true"
       />
       <FormField
         type="checkbox"

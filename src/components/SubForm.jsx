@@ -20,7 +20,12 @@ function SubForm({
     let isValid = true;
 
     for (const property in subFormData) {
-      if (property === "ongoing" || property === "endDate") continue;
+      if (
+        property === "ongoing" ||
+        property === "endDate" ||
+        property === "responsibilities"
+      )
+        continue;
       if (!subFormData[property]) {
         newErrors[property] = "Required!";
         isValid = false;
@@ -93,6 +98,7 @@ function SubForm({
           isSubForm={true}
           errors={errors}
           setErrors={setErrors}
+          required={field.required}
           key={field.id}
         />
       ))}

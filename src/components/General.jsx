@@ -37,6 +37,7 @@ function General({ data, setData, errors, setErrors }) {
           setState={setData}
           errors={errors}
           setErrors={setErrors}
+          required="true"
           key={field.id}
         />
       ))}

@@ -13,6 +13,7 @@ function FormField({
   isSubForm,
   errors,
   setErrors,
+  required,
 }) {
   const hasError = errors && Object.hasOwn(errors, name);
   let isDisabled = false;
@@ -21,7 +22,12 @@ function FormField({
   return (
     <div className="form-field">
       <label htmlFor={id} className={hasError ? "error" : ""}>
-        {label}
+        {label}{" "}
+        {required ? (
+          <span className="required" aria-required="true">
+            *
+          </span>
+        ) : null}
       </label>
       <Input
         type={type}

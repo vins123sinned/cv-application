@@ -6,3 +6,7 @@
   display: flex;
   align-items: center;
 }
+
+.required {
+  color: #f80b0b;
+}

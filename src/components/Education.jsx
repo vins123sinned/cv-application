@@ -20,11 +20,13 @@ function Education({
       id: "school",
       name: "school",
       label: "School",
+      required: true,
     },
     {
       id: "study",
       name: "study",
       label: "Field of Study",
+      required: true,
     },
   ];
 
