@@ -78,6 +78,7 @@ function Experience({
                 dataSectionName={dataSectionName}
                 setEditingKey={setEditingKey}
                 setSubFormData={setSubFormData}
+                setShowSubForm={setShowSubForm}
               />
             </div>
           </div>

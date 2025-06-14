@@ -49,6 +49,7 @@ function EditButton({
   dataSectionName,
   setEditingKey,
   setSubFormData,
+  setShowSubForm,
 }) {
   function editEntry() {
     const entryData = data[dataSectionName].find(
@@ -57,6 +58,7 @@ function EditButton({
 
     setEditingKey(entryKey);
     setSubFormData(entryData);
+    setShowSubForm(null);
   }
 
   return (
