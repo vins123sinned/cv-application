@@ -68,19 +68,22 @@ button:hover {
   margin: 0 0 1rem 0;
 }
 
+.form-section,
+.generate-container {
+  width: 700px;
+}
+
 .form-section {
   background-color: #fff;
   border-radius: 0.5rem;
   box-shadow:
     0 4px 12px -1px rgb(0 0 0 / 0.1),
     0 2px 6px -1px rgb(0 0 0 / 0.06);
-  width: clamp(400px, 50vw, 800px);
-  padding: 1.5rem 3rem 2rem 3rem;
+  padding: 1.5rem 2rem 2rem 2rem;
   margin: 0.75rem auto;
 }
 
 .generate-container {
-  width: clamp(400px, 50vw, 800px);
   margin: 1rem auto;
 }
 
@@ -95,4 +98,11 @@ input.error {
 
 input.error:focus-visible {
   outline-color: #f80b0b;
+}
+
+@media (max-width: 800px) {
+  .form-section,
+  .generate-container {
+    max-width: 90vw;
+  }
 }
