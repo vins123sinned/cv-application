@@ -28,13 +28,13 @@ cd cv-application
 npm install
 ```
 
--- Start the development server
+- Start the development server
 
 ```bash
 npm run dev
 ```
 
--- Now visit [http://localhost:5173](http://localhost:5173) in your browser and you're all set! Happy coding!
+- Now visit [http://localhost:5173](http://localhost:5173) in your browser and you're all set! Happy coding!
 
 ## Lessons Learned
 By completing this project, I was able to get comfortable with the basics of React and its ecosystem. I also experienced the convenience of Vite's lightweight build process which saved me time setting up my environment and made me more productive. Some key takeaways for me were:
