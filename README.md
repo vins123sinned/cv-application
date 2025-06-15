@@ -14,7 +14,7 @@ A React-based CV application that dynamically generates a CV from user input usi
 - Clone the repository to your local computer:
 
 ```bash
-git clone https://github.com/your-username/cv-application.git
+git clone git@github.com:your-username/cv-application.git
 ```
 - Navigate into the directory
 
